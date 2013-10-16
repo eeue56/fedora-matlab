@@ -17,9 +17,9 @@
 
 	    	$html .= "<div class='username'>".$row[1]."</div>";
 	    	$html .= "<div class='post ui segment piled'>";
-		    $html .= "<div class='ui downscore left floated header'><img src='images/downboat.png' class='downboat voter' />".$row[4]." </div>";
+		    $html .= "<div class='ui downscore left floated header scorer'><img src='images/downboat.png' class='downboat voter' /> <br />".$row[4]." </div>";
 		    $html .= "<div class='post_text center'>".$row[2]."</div>";
-		    $html .= "<div class='ui upscore right floated header'> ".$row[3]."<img src='images/upboat.png' class='upboat voter' /></div>";
+		    $html .= "<div class='ui upscore right floated header gupnp_service_action_return_error(action, error_code)'><img src='images/upboat.png' class='upboat voter' /> <br />".$row[3]."</div>";
 		    $html .= "</div>";
 	    }
 

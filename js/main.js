@@ -6,7 +6,7 @@ function update() {
 
 function updateRepeating() {
 	update();
-    window.setTimeout(updateRepeating, 10000);
+   // window.setTimeout(updateRepeating, 10000);
 }
 
 function uploadBoat(){
