@@ -20,13 +20,12 @@ if($_SESSION['status'] == "authorized") {
 	    }
 	    
 	    foreach($dbField as $row => $cell) {
-
+	    	$html .= "<div class='post'>";
 	    	$html .= "<div class='username'>".$dbField[$row]['username']."</div>";
 		    $html .= "<div class='post_text'>".$dbField[$row]['post_text']."</div>";
 		    $html .= "<div class='upscore'>".$dbField[$row]['upscore']."</div>";
 		    $html .= "<div class='downscore'>".$dbField[$row]['downscore']."</div>";
-
-
+		    $html .= "</div>";
 	    }
 
 	    echo $html;
