@@ -17,7 +17,7 @@
 			<div  class="ui small form segment piled make-post">
 				<input id="posttext" type="text" placeholder="Write your own boats!"/>
 				<br />
-				<div id="submit_post" class="ui button blue" onclick="uploadBoat()">post</div>
+				<div id="submit_post" class="ui button purple" onclick="uploadBoat()">post</div>
 			</div>
 		</div>
 
