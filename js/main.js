@@ -6,19 +6,20 @@ function update() {
 }
 
 upboat(feedid) {
-	$.ajax({
-	  type: "POST",
-	  url: "php/vote.php",
+	$.post({
+	  "php/vote.php",
+	  data: data,
 	  direction: "up",
 	  id: feedid
-	});
+	}).done(update());
+
 }
 
 downboat(feedid) {
-	$.ajax({
-	  type: "POST",
-	  url: "php/vote.php",
+	$.post({
+	  "php/vote.php",
+	  data: data,
 	  direction: "down",
 	  id:feedid
-	});
+	}).done(update());
 }
