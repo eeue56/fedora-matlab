@@ -9,25 +9,48 @@ function updateRepeating() {
     window.setTimeout(updateRepeating, 10000);
 }
 
-function updloadBoat(){
-	
+function uploadBoat(){
+
+	var user_post = new Array();
+
+	var post_details = {
+		posttext: $("#posttext").val(),
+	}
+
+	user_post.push(post_details);
+	console.log(post_details);
+
+	var json = JSON.stringify(user_post);
+
+	$.ajax({
+		url:"php/post.php",
+		type:"POST",
+		data: {
+			post_details: json
+		},
+		success:function (data) {
+			//window.location.href = "index.php"
+		}
+	});
 }
 
 function upboat(feedid) {
-	$.post({
+	$.post(
 	  "php/vote.php",
-	  data: data,
-	  direction: "up",
-	  id: feedid
+	  {
+		  data: data,
+		  direction: "up",
+		  id: feedid
 	}).done(update());
 
 }
 
 function downboat(feedid) {
-	$.post({
+	$.post(
 	  "php/vote.php",
-	  data: data,
-	  direction: "down",
-	  id:feedid
+	  {
+		  data: data,
+		  direction: "down",
+		  id:feedid
 	}).done(update());
 }
