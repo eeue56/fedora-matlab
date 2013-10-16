@@ -5,7 +5,7 @@
 	include_once "mysqlConnection.php";
 
 	try {
-	    $result = $mysqli->query("SELECT * FROM feed ORDER BY totalscore ASC LIMIT 20");
+	    $result = $mysqli->query("SELECT * FROM feed ORDER BY totalscore DESC LIMIT 20");
 
 	    $html = "There are no feeds at this time"; 
 
@@ -15,7 +15,7 @@
 
 	    while($row = $result->fetch_row()) {
 
-	    	$html .= "<div class='post'>";
+	    	$html .= "<div class='post ui'>";
 		    $html .= "<div class='upscore'>".$row[3]."</div>";
 	    	$html .= "<div class='username'>".$row[1]."</div>";
 		    $html .= "<div class='post_text'>".$row[2]."</div>";

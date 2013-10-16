@@ -29,7 +29,11 @@ function uploadBoat(){
 			post_details: json
 		},
 		success:function (data) {
+			//window.location.href = "index.php"
+			$("#posttext").val("");
+			$('.ui.modal').modal('show');
 			update();
+
 		}
 	});
 }
