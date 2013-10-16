@@ -1,10 +1,13 @@
 <?php
+include_once 'mysqlConnection.php';
 
-        $userdetails_json = $_POST['user_details'];
+       $userdetails_json = $_POST['user_details'];
 
-        $stmt = $mysqli->prepare('INSERT INTO members VALUES (?,?,?,?,?');
+        $stmt = $mysqli->prepare("INSERT INTO members VALUES (?,?,?,?,?)");
 
-        foreach($userdetails_json as $userdetail) {
+        $user_details = json_decode($userdetails_json);
+
+        foreach($user_details as $userdetail) {
 
                 $username = $userdetail->username;
                 $password = $userdetail->password;
@@ -14,7 +17,7 @@
 
                 $password = crypt($password, $username);
 
-                $stmt->bind_param(sssib, $username, $password, $email, $score, $hats)
+                $stmt->bind_param('sssis', $username, $password, $email, $score, $hats);
 
                 $stmt->execute();
         }
