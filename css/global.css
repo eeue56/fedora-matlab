@@ -14,6 +14,30 @@
 
 }
 
+#feed {
+
+	margin-right:100px;
+    margin-left:100px;
+    margin-top:50px;
+}
+
+.post * {
+	display:inline;
+	padding:1em;
+}
+
+.score {
+	font-size: 1em;
+}
+
+.voter {
+	max-height:2.5em;
+	max-width:2.5em;
+}
+
+
+
+
 h1 {
 
 	margin-left:100px;

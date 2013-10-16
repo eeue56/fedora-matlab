@@ -29,7 +29,7 @@
 		</div>
 
 
-		<div id="feed" class="feed">
+		<div id="feed" class="ui small segment piled">
 
 		</div>
 

@@ -15,11 +15,11 @@
 
 	    while($row = $result->fetch_row()) {
 
-	    	$html .= "<div class='post ui'>";
-		    $html .= "<div class='upscore'>".$row[3]."</div>";
 	    	$html .= "<div class='username'>".$row[1]."</div>";
-		    $html .= "<div class='post_text'>".$row[2]."</div>";
-		    $html .= "<div class='downscore'>".$row[4]."</div>";
+	    	$html .= "<div class='post ui segment piled'>";
+		    $html .= "<div class='downscore score left floated segment'><img src='images/downboat.png' class='voter' />".$row[4]." </div>";
+		    $html .= "<div class='post_text center'>".$row[2]."</div>";
+		    $html .= "<div class='upscore score right floated segment'> ".$row[3]."<img src='images/upboat.png' class='voter' /></div>";
 		    $html .= "</div>";
 	    }
 
