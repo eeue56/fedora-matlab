@@ -23,19 +23,25 @@
 
 .post {
 	min-height:5em;
+	position:relative;
+	text-align:center;
+	padding:0 100px;
 }
 .score {
 	font-size: 1em;
 }
 
 .voter {
+	position:relative;
 	max-height:2em;
 	max-width:2em;
 }
 
 .post_text {
+	display:block;
+	position:relative;
 	text-align:center;
-	margin:1em;
+	padding:0 5em;
 }
 
 h1 {
