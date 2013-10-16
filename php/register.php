@@ -1,48 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css"></link>
-        <link rel="stylesheet" href="../css/global.css"></link>
-    </head>
-    <body>
+<?php
 
-    	<br />
-    	<br />
+        $userdetails_json = $_POST['user_details'];
 
-        <div id="login_form">
+        $stmt = $mysqli->prepare('INSERT INTO members VALUES (?,?,?,?,?');
 
-            <h1> Registration!</h1>
+        foreach($userdetails_json as $userdetail) {
 
-        	<div class="ui small form segment piled">
-                <h2> Please enter your details below. </h2>
-        		<div class="field">
-        			<label>Username</label>
-        			<input type="text">
-        		</div>
+                $username = $userdetail->username;
+                $password = $userdetail->password;
+                $email = $userdetail->email;
+                $score = 0;
+                $hats = '';
 
-        		<div class="field">
-        			<label>Password</label>
-        			<input type="text">
-        		</div>
+                $password = crypt($password, $username);
 
-                <div class="field">
-                    <label>Email</label>
-                    <input type="text">
-                </div>
+                $stmt->bind_param(sssib, $username, $password, $email, $score, $hats)
 
-                <div class="inline ui buttons">
-                    <div class="ui button">Cancel</div>
-                    <div class="or"></div>
-                    <div class="ui positive button" onClick="register_user()">Submit</div>
-                </div>
+                $stmt->execute();
+        }
 
 
-        	</div>
+        $stmt->close();
 
-        </div>
-
-        <!--Load scripts-->
-        <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script> 
-        <script type="text/javascript" src="../js/register.js"></script>     
-    </body>
-</html>
+?>

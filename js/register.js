@@ -18,7 +18,7 @@ var register_user = function() {
 			user_details: json
 		},
 		success:function (data) {
-			//window.location.href = ""
+			window.location.href = "../index.html"
 		}
 	});
 }

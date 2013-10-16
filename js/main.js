@@ -1,11 +1,19 @@
 function update() {
   $.get("php/feed.php", function(data) {
     $("#feed").html(data);
-    window.setTimeout(update, 10000);
   });
 }
 
-upboat(feedid) {
+function updateRepeating() {
+	update();
+    window.setTimeout(updateRepeating, 10000);
+}
+
+function updloadBoat(){
+	
+}
+
+function upboat(feedid) {
 	$.post({
 	  "php/vote.php",
 	  data: data,
@@ -15,7 +23,7 @@ upboat(feedid) {
 
 }
 
-downboat(feedid) {
+function downboat(feedid) {
 	$.post({
 	  "php/vote.php",
 	  data: data,
