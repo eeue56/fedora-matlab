@@ -2,9 +2,9 @@ var register_user = function() {
 
 	var user_details = {
 
-		username: $("#username").text(),
-		password: $("#password").text(),
-		email: $("#email").text()
+		username: $("#username").val(),
+		password: $("#password").val(),
+		email: $("#email").val()
 	}
 
 	console.log(user_details);
@@ -14,12 +14,11 @@ var register_user = function() {
 	$.ajax({
 		url:"register.php",
 		type:"POST",
-		data {
+		data: {
 			user_details: json
-		};
+		},
 		success:function (data) {
-			console.log(data);
-			window.location.href = "success.html"
+			//window.location.href = ""
 		}
 	});
 }
