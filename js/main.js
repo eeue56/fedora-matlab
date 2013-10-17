@@ -6,7 +6,7 @@ function update() {
 
 function updateRepeating() {
 	update();
-    window.setTimeout(updateRepeating, 10000);
+    //window.setTimeout(updateRepeating, 10000);
 }
 
 function uploadBoat(){
@@ -39,40 +39,24 @@ function uploadBoat(){
 }
 
 function upboat(feedid) {
-	// $.post(
-	//   "php/vote.php",
-	//   {
-	// 	  data: data,
-	// 	  direction: "up",
-	// 	  id: feedid
-	// }).done(update());
-
 	$.ajax({
-	url:"php/vote.php",
-	type:"POST",
-	data: {
-		direction: "up",
-		id: feedid
-	},
-	success:function (data) {
-		//window.location.href = "index.php"
-		console.log(data);
+		url:"php/vote.php",
+		type:"POST",
+		data: {
+			direction: "up",
+			id: feedid
+		},
+		success:function (data) {
+			//window.location.href = "index.php"
+			console.log(data);
+			$("#"+feedid+"UP").html(parseInt($("#"+feedid+"UP").html()) + 1)
 	}
 });
-
 
 
 }
 
 function downboat(feedid) {
-	// $.post(
-	//   "php/vote.php",
-	//   {
-	// 	  data: data,
-	// 	  direction: "down",
-	// 	  id:feedid
-	// }).done(update());
-
 	$.ajax({
 		url:"php/vote.php",
 		type:"POST",
@@ -83,7 +67,7 @@ function downboat(feedid) {
 		success:function (data) {
 			//window.location.href = "index.php"
 			console.log(data);
-			update();
+			$("#"+feedid+"DOWN").html(parseInt($("#"+feedid+"DOWN").html()) + 1)
 	}
 });
 }

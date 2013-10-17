@@ -1,3 +1,17 @@
+<?php
+    require_once "php/Membership.php";
+    $membership = new Membership();
+
+    if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
+        $membership->log_User_Out();
+    }
+
+    if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
+        $response = $membership->validate_User($_POST['username'],crypt($_POST['pwd'],$_POST['username']));
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,9 +24,8 @@
     	<br />
 
         <div id="login_form">
-            <form method="post" action="">
 
-            <h1> Registration!</h1>
+            <h1> Login!</h1>
 
         	<div class="ui small form segment piled">
                 <h2> Please enter your details below. </h2>
@@ -26,11 +39,6 @@
         			<input type="text" id="password">
         		</div>
 
-                <div class="field">
-                    <label>Email</label>
-                    <input type="text" id="email">
-                </div>
-
                 <div class="inline ui buttons">
                     <div class="ui button">Cancel</div>
                     <div class="or"></div>
@@ -39,9 +47,9 @@
 
 
         	</div>
-        </form>
 
         </div>
+        <?php if(isset($reponse)) echo "you suck balls " . $response ?>
 
         <!--Load scripts-->
         <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script> 

@@ -35,7 +35,7 @@ class Membership {
 
         function registerUser() {
 
-                $userdetails_json = $_POST['user_details']
+                $userdetails_json = $_POST['user_details'];
 
                 $stmt = $mysqli->prepare('INSERT INTO members VALUES (?,?,?,?,?');
 
@@ -49,7 +49,7 @@ class Membership {
 
                         $password = crypt($password, $username);
 
-                        $stmt->bind_param(sssib, $username, $password, $email, $score, $hats)
+                        $stmt->bind_param(sssib, $username, $password, $email, $score, $hats);
 
                         $stmt->execute();
                 }

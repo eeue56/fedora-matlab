@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/Logonconstants.php';
+require_once 'Logonconstants.php';
 
 class LogonMysql {
         private $conn;
@@ -21,7 +21,7 @@ class LogonMysql {
                 $pwd = $this->conn->real_escape_string($pwd);
 
                 $query = "SELECT *
-                FROM users
+                FROM members
                 WHERE username = ? AND password = ?
                 LIMIT 1";
 
@@ -42,4 +42,3 @@ class LogonMysql {
                 }
 
         }
-}

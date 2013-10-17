@@ -12,6 +12,8 @@ include_once 'mysqlConnection.php';
             $mysqli->query("UPDATE feed SET downscore=downscore+1 WHERE feedid='".$_POST['id']."'"); 
         }
 
-    } echo "UPDATE feed SET upscore=upscore+1 WHERE feedid='".$_POST['id']."'";
+    } 
+
+        $mysqli->query("UPDATE feed SET totalscore=upscore-downscore WHERE feedid='".$_POST['id']."'");
 
 ?>
