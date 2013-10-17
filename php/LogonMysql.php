@@ -9,23 +9,23 @@ class LogonMysql  {
                 die('There was a problem connecting to the database.');
         }
 
-        function update_score() {
+        // function update_score() {
 
-                $stmt = $this->conn->prepare('UPDATE members SET score= ? WHERE username=?');
+        //         $stmt = $this->conn->prepare('UPDATE members SET score= ? WHERE username=?');
 
-                $score = $_SESSION['score'];
-                ob_start();
-                var_dump($_SESSION['score']);
-                $c = ob_get_contents();
-                ob_end_clean();
-                error_log($c);
-                $user = $_SESSION['username'];
+        //         $score = $_SESSION['score'];
+        //         ob_start();
+        //         var_dump($_SESSION['score']);
+        //         $c = ob_get_contents();
+        //         ob_end_clean();
+        //         error_log($c);
+        //         $user = $_SESSION['username'];
 
-                $stmt->bind_param('is', $score, $user);
-                $stmt->execute();
+        //         $stmt->bind_param('is', $score, $user);
+        //         $stmt->execute();
 
-                $stmt->close();
-        }
+        //         $stmt->close();
+        // }
 
         function verify_Username_and_Pass($un, $pwd) {
 

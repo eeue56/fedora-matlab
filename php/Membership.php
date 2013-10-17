@@ -21,8 +21,8 @@ class Membership {
         
         function log_User_Out() {
 
-                $sql = new LogonMysql();
-                $sql->update_score();
+                //$sql = new LogonMysql();
+                //$sql->update_score();
 
                 if(isset($_SESSION['status'])) {
                         unset($_SESSION['status']);
