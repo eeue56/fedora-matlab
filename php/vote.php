@@ -5,13 +5,13 @@ include_once 'mysqlConnection.php';
 
         if($_POST['direction'] == "up") {
 
-            $mysqli->query("UPDATE feed SET upscore=upscore+1 WHERE feedid=".$_POST['id']);  
+            $mysqli->query("UPDATE feed SET upscore=upscore+1 WHERE feedid='".$_POST['id']."'"); 
 
         } else if($_POST['direction'] == "down") {
 
-            $mysqli->query("UPDATE feed SET downscore=downscore+1 WHERE feedid=".$_POST['id']);
+            $mysqli->query("UPDATE feed SET downscore=downscore+1 WHERE feedid='".$_POST['id']."'"); 
         }
 
-    } echo "hello";
+    } echo "UPDATE feed SET upscore=upscore+1 WHERE feedid='".$_POST['id']."'";
 
 ?>
