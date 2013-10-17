@@ -18,17 +18,13 @@
 	    	$html .= "<div class='post ui segment piled'>";
 		    $html .= "<div class='ui downscore left floated header scorer'>
 		    			<img onclick='downboat(\"".$row[0]."\")' src='images/downboat.png' class='downboat voter' /> 
-		    			<br />
 		    			<div id='".$row[0]."DOWN'>".$row[4]." 
 		    			</div>
-		    		</div> 
-		    		<br/>";
+		    		</div>";
    		    $html .= "<div class='ui upscore right floated header '>
-   		    			<div id='".$row[0]."UP'>
-   		    				".$row[3]."
-   		    			</div>
-   		    			<br />
    		    			<img onclick='upboat(\"".$row[0]."\")' src='images/upboat.png' class='upboat voter' />
+   		    			<div id='".$row[0]."UP'>".$row[3]."
+   		    			</div>
    		    		</div>";
 		    $html .= "<div class='post_text'>".$row[2]."</div>";
 		    $html .= "</div>";
