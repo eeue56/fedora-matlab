@@ -16,8 +16,8 @@
 	    while($row = $result->fetch_row()) {
 	    	$html .= "<div class='username'>".$row[1]."</div>";
 	    	$html .= "<div class='post ui segment piled'>";
-		    $html .= "<div class='ui downscore left floated header scorer'><a onclick='downboat(".$row[0].")'  href='javascript:void(0)'><img src='images/downboat.png' class='downboat voter' /></a> <br />".$row[4]." </div> <br/>";
-   		    $html .= "<div class='ui upscore right floated header '>".$row[3]."<br /><a onclick='upboat(".$row[0].")' href='javascript:void(0)'><img src='images/upboat.png' class='upboat voter' /> </a></div>";
+		    $html .= "<div class='ui downscore left floated header scorer'><img onclick='downboat(\"".$row[0]."\")' src='images/downboat.png' class='downboat voter' /> <br />".$row[4]." </div> <br/>";
+   		    $html .= "<div class='ui upscore right floated header '>".$row[3]."<br /><img onclick='upboat(\"".$row[0]."\")' src='images/upboat.png' class='upboat voter' /></div>";
 		    $html .= "<div class='post_text'>".$row[2]."</div>";
 		    $html .= "</div>";
 	    }

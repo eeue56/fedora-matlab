@@ -1,7 +1,6 @@
-<?php $_SESSION['username'] = 'herpaderp' ?>
+<?php $_SESSION['username'] = 'herpaderp'?>
 <html>
 	<head>
-		<script src='js/main.js' ></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css"></link>
         <link rel="stylesheet" href="css/global.css"></link>
 	</head>
@@ -34,6 +33,7 @@
 		</div>
 
 		<!--JABASCRIPTS -->
+		<script src='js/main.js' ></script>
 		<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/javascript/semantic.min.js"></script>
 
