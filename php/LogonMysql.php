@@ -1,5 +1,4 @@
 <?php
-
 require_once 'Logonconstants.php';
 
 class LogonMysql  {
@@ -10,11 +9,19 @@ class LogonMysql  {
                 die('There was a problem connecting to the database.');
         }
 
-        function update_score($user, $score) {
+        function update_score() {
 
                 $stmt = $this->conn->prepare('UPDATE members SET score= ? WHERE username=?');
 
-                $stmt->bind_param('is', $score, $username);
+                $score = $_SESSION['score'];
+                ob_start();
+                var_dump($_SESSION['score']);
+                $c = ob_get_contents();
+                ob_end_clean();
+                error_log($c);
+                $user = $_SESSION['username'];
+
+                $stmt->bind_param('is', $score, $user);
                 $stmt->execute();
 
                 $stmt->close();
@@ -41,11 +48,6 @@ class LogonMysql  {
                         $stmt->bind_result($result);
                         $stmt->fetch();
                         //$count = $result->rowCount();
-                        ob_start();
-                        var_dump($result);
-                        $c = ob_get_contents();
-                        ob_end_clean();
-                        error_log($c);
                         //return $stmt;
                         if($result) {
 

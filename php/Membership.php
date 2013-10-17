@@ -8,11 +8,6 @@ class Membership {
         function validate_user($un, $pwd) {
                 $mysql = New LogonMysql(); 
                 $ensure_credentials = $mysql->verify_Username_and_Pass($un, $pwd);
-                // ob_start();
-                // var_dump($ensure_credentials);
-                // $c = ob_get_contents();
-                // ob_end_clean();
-                // error_log($c);
 
                 if($ensure_credentials) {
                         $_SESSION['status'] = $ensure_credentials;
@@ -27,8 +22,7 @@ class Membership {
         function log_User_Out() {
 
                 $sql = new LogonMysql();
-                $sql->update_score($_SESSION['username'],$_SESSION['endscore']);
-
+                $sql->update_score();
 
                 if(isset($_SESSION['status'])) {
                         unset($_SESSION['status']);
