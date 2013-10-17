@@ -16,6 +16,8 @@ class hatter{
 
 	function changeHead($username) {
 		$this->user = $username;
+		$this->totalScorage = 0;
+		$this->hat = "nada";
 	}
 
 	function grabMyHat(){
