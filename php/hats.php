@@ -14,6 +14,10 @@ class hatter{
 			die('There was a problem connecting to the database.');
 	}
 
+	function changeHead($username) {
+		$this->user = $username;
+	}
+
 	function grabMyHat(){
 		$result = $this->mysqli->query("SELECT totalscore FROM feed WHERE username='".$this->user."'");
 
@@ -22,6 +26,8 @@ class hatter{
 			$this->totalScorage += $row[0];
 		}
 
+
+		//GOTTA LOVE DEM HATSIES
 		if($this->totalScorage > 10 && $this->totalScorage < 100) {
 			$this->hat = "fedrah";
 		} else if($this->totalScorage >= 100 && $this->totalScorage < 200) {
@@ -37,7 +43,7 @@ class hatter{
 		} else if($this->totalScorage >= 6000) {
 			$this->hat = "rodjah's fedrah";
 		} 
-		return $this->hat . " (" .$this->totalScorage .")";
+		return "[" .$this->hat . " (" .$this->totalScorage .")]";
 	}
 }
 ?>

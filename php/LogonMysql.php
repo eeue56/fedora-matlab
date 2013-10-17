@@ -10,6 +10,16 @@ class LogonMysql  {
                 die('There was a problem connecting to the database.');
         }
 
+        function update_score($user, $score) {
+
+                $stmt = $this->conn->prepare('UPDATE members SET score= ? WHERE username=?');
+
+                $stmt->bind_param('is', $score, $username);
+                $stmt->execute();
+
+                $stmt->close();
+        }
+
         function verify_Username_and_Pass($un, $pwd) {
 
                 //let's not have any nasty accidents

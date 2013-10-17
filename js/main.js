@@ -55,7 +55,6 @@ function upboat(feedid) {
 
 
 }
-
 function downboat(feedid) {
 	$.ajax({
 		url:"php/vote.php",

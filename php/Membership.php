@@ -25,6 +25,11 @@ class Membership {
         } 
         
         function log_User_Out() {
+
+                $sql = new LogonMysql();
+                $sql->update_score($_SESSION['username'],$_SESSION['endscore']);
+
+
                 if(isset($_SESSION['status'])) {
                         unset($_SESSION['status']);
                         
@@ -32,6 +37,7 @@ class Membership {
                                 setcookie(session_name(), '', time() - 1000);
                                 session_destroy();
                 }
+
         }
         
         function confirm_Member() {

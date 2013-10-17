@@ -3,6 +3,7 @@
 //if($_SESSION['status'] == "authorized") {
 
 	include_once "mysqlConnection.php";
+	include_once "hats.php";
 
 	try {
 	    $result = $mysqli->query("SELECT * FROM feed ORDER BY totalscore DESC LIMIT 20");
@@ -15,10 +16,11 @@
 	    if($result){
 	    	$html = '';
 	    }
-
+	    $hat = new hatter("no");
 	    while($row = $result->fetch_row()) {
 	    	$randi = rand(0,5);
-	    	$html .= "<div class='username'>".$row[1]."</div>";
+	    	$hat->changeHead($row[1]);
+	    	$html .= "<div class='username'>".$row[1]." ".$hat->grabMyHat()."</div>";
 	    	$html .= "<div class='post " .$col_array[$randi]. " ui segment piled'>";
 		    $html .= "<div class='ui downscore left floated header scorer'>
 		    			<img onclick='downboat(\"".$row[0]."\")' src='images/downboat.png' class='downboat voter' /> 
