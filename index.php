@@ -1,4 +1,9 @@
-<?php $_SESSION['username'] = 'herpaderp'?>
+<?php 
+require_once 'php/Membership.php';
+$membership = New Membership();
+
+$membership->confirm_Member();
+?>
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css"></link>
@@ -7,7 +12,7 @@
 	<body onLoad="updateRepeating()">
 		<div id="top_bar">
 			<div id= "user">
-				User: <?php echo $_SESSION['username']; ?>
+				User: <?php echo $_SESSION['username']; ?> <a href="login.php?status=loggedout">(Log Out)</a>
 			</div>
 		</div>
 

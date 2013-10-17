@@ -6,14 +6,14 @@ include_once "mysqlConnection.php";
 class Membership {
         
         function validate_user($un, $pwd) {
-                $mysql = New LogonMysql();
+                $mysql = New LogonMysql(); 
                 $ensure_credentials = $mysql->verify_Username_and_Pass($un, $pwd);
-
+                return $ensure_credentials;
                 if($ensure_credentials) {
                         $_SESSION['status'] = $ensure_credentials;
                         $_SESSION['username'] = $un;
                         $_SESSION['timeout'] = time();
-                        header("location: index.php");
+                        header("location: http://198.211.122.209/fedora-matlab/index.php");
                 } else return "Please enter a correct username and password";
                 
         } 

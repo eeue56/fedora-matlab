@@ -1,16 +1,15 @@
 <?php
-    require_once "php/Membership.php";
-    $membership = new Membership();
+session_start();
+require_once "php/Membership.php";
+$membership = new Membership();
 
-    if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
-        $membership->log_User_Out();
+if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
+    $membership->log_User_Out();
     }
 
-    if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
-        $response = $membership->validate_User($_POST['username'],crypt($_POST['pwd'],$_POST['username']));
-    }
+if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
+    $response = $membership->validate_User($_POST['username'],crypt($_POST['pwd'],$_POST['username']));}
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -26,17 +25,17 @@
         <div id="login_form">
 
         <h1> Login!</h1>
-        <form type="post" action="">
+        <form method="post" action="">
         	<div class="ui small form segment piled">
                 <h2> Please enter your details below. </h2>
         		<div class="field">
         			<label>Username</label>
-        			<input type="text" id="username">
+        			<input type="text" name="username">
         		</div>
 
         		<div class="field">
         			<label>Password</label>
-        			<input type="text" id="password">
+        			<input type="text" name="pwd">
         		</div>
 
                 <div class="inline ui buttons">
@@ -49,7 +48,7 @@
         	</div>
         </form>
         </div>
-        <?php if(isset($reponse)) echo "you suck balls " . $response ?>
+        <h1><?php if(isset($reponse)) echo "you suck balls " . $response ?></h1>
 
         <!--Load scripts-->
         <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script> 

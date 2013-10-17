@@ -2,7 +2,7 @@
 
 require_once 'Logonconstants.php';
 
-class LogonMysql {
+class LogonMysql  {
         private $conn;
 
         function __construct() {
@@ -27,18 +27,25 @@ class LogonMysql {
 
                 if($stmt = $this->conn->prepare($query)) {
                         $stmt->bind_param('ss', $un, $pwd);
-                        $stmt->execute();
-                        $stmt->bind_result($un,$pwd,$auth);
-                        if($stmt->fetch()) {
-                                if($auth)
+                        $result = $stmt->execute();
+                        return $stmt;
+                        if($result) {
+
+                                return "authorized";
+                        }
+                        return false;
+                        // $stmt->bind_result($un,$pwd);
+                        // if($stmt->fetch()) {
+                        //         if($auth)
                                         
-                                        $stmt->close();
-                                        return "authorized";
-                                }
+                        //                 $stmt->close();
+                        //                 return "authorized";
+                        //         }
                                 
 
-                                return true;
-                        }
+                        //         return "authorized";
+                        // }
                 }
 
         }
+}

@@ -50,3 +50,8 @@ h1 {
 	margin-left:100px;
 }
 
+body {
+background-image:url('../images/dimension.png');
+background-repeat:repeat;
+font-family:"Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}

@@ -44,12 +44,14 @@ function upboat(feedid) {
 		type:"POST",
 		data: {
 			direction: "up",
-			id: feedid
+			id: feedid,
+			usr: username
 		},
 		success:function (data) {
 			//window.location.href = "index.php"
 			console.log(data);
 			$("#"+feedid+"UP").html(parseInt($("#"+feedid+"UP").html()) + 1)
+			update();
 	}
 });
 
@@ -62,7 +64,7 @@ function downboat(feedid) {
 		type:"POST",
 		data: {
 			direction: "down",
-			id: feedid
+			id: feedid,
 		},
 		success:function (data) {
 			//window.location.href = "index.php"
