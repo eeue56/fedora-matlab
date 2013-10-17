@@ -45,13 +45,11 @@ function upboat(feedid) {
 		data: {
 			direction: "up",
 			id: feedid,
-			usr: username
 		},
 		success:function (data) {
 			//window.location.href = "index.php"
 			console.log(data);
 			$("#"+feedid+"UP").html(parseInt($("#"+feedid+"UP").html()) + 1)
-			update();
 	}
 });
 

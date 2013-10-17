@@ -9,13 +9,17 @@
 
 	    $html = "There are no feeds at this time"; 
 
+	    $col_array = array('blue','orange','green','red','purple','teal');
+
+
 	    if($result){
 	    	$html = '';
 	    }
 
 	    while($row = $result->fetch_row()) {
+	    	$randi = rand(0,5);
 	    	$html .= "<div class='username'>".$row[1]."</div>";
-	    	$html .= "<div class='post ui segment piled'>";
+	    	$html .= "<div class='post " .$col_array[$randi]. " ui segment piled'>";
 		    $html .= "<div class='ui downscore left floated header scorer'>
 		    			<img onclick='downboat(\"".$row[0]."\")' src='images/downboat.png' class='downboat voter' /> 
 		    			<div id='".$row[0]."DOWN'>".$row[4]." 

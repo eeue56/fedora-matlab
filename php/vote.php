@@ -6,8 +6,6 @@ include_once 'mysqlConnection.php';
         if($_POST['direction'] == "up") {
 
             $mysqli->query("UPDATE feed SET upscore=upscore+1 WHERE feedid='".$_POST['id']."'"); 
-            $usr = $mysqli->query("SELECT * FROM members WHERE username='".$_POST['usr']."'");
-            $mysqli->query("UPDATE members SET score=score+1 WHERE username=" + $usr);
 
         } else if($_POST['direction'] == "down") {
 

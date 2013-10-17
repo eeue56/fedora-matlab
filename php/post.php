@@ -11,7 +11,7 @@ session_start();
         foreach($post_details as $postdetail) {
 
                 $feedid = uniqid();
-                $username = 'test';
+                $username = $_SESSION['username'];
                 $posttext = $postdetail->posttext;
                 $upscore = 0;
                 $downscore = 0;

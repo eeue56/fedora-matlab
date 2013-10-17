@@ -1,8 +1,11 @@
 <?php 
 require_once 'php/Membership.php';
+require_once 'php/hats.php';
 $membership = New Membership();
 
+
 $membership->confirm_Member();
+$hat = new hatter($_SESSION['username']);
 ?>
 <html>
 	<head>
@@ -12,7 +15,7 @@ $membership->confirm_Member();
 	<body onLoad="updateRepeating()">
 		<div id="top_bar">
 			<div id= "user">
-				User: <?php echo $_SESSION['username']; ?> <a href="login.php?status=loggedout">(Log Out)</a>
+				User: <?php echo $_SESSION['username'] . " ".$hat->grabMyHat();?> <a href="login.php?status=loggedout">(Log Out)</a>
 			</div>
 		</div>
 
