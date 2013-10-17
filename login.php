@@ -36,7 +36,7 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 
         		<div class="field">
         			<label>Password</label>
-        			<input type="text" name="pwd">
+        			<input type="password" name="pwd">
         		</div>
 
                 <div class="inline ui buttons">
