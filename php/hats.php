@@ -18,7 +18,7 @@ class hatter{
 		$result = $this->mysqli->query("SELECT totalscore FROM feed WHERE username='".$this->user."'");
 
 		while($row = $result->fetch_row()) {
-			var_dump($row);
+
 			$this->totalScorage += $row[0];
 		}
 
