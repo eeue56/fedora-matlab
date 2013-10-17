@@ -20,15 +20,23 @@ class LogonMysql  {
                 }
                 $pwd = $this->conn->real_escape_string($pwd);
 
-                $query = "SELECT *
+                $query = "SELECT COUNT(*)
                 FROM members
                 WHERE username = ? AND password = ?
                 LIMIT 1";
 
                 if($stmt = $this->conn->prepare($query)) {
                         $stmt->bind_param('ss', $un, $pwd);
-                        $result = $stmt->execute();
-                        return $stmt;
+                        $stmt->execute();
+                        $stmt->bind_result($result);
+                        $stmt->fetch();
+                        //$count = $result->rowCount();
+                        ob_start();
+                        var_dump($result);
+                        $c = ob_get_contents();
+                        ob_end_clean();
+                        error_log($c);
+                        //return $stmt;
                         if($result) {
 
                                 return "authorized";

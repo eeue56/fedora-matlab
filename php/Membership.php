@@ -8,12 +8,18 @@ class Membership {
         function validate_user($un, $pwd) {
                 $mysql = New LogonMysql(); 
                 $ensure_credentials = $mysql->verify_Username_and_Pass($un, $pwd);
-                return $ensure_credentials;
+                // ob_start();
+                // var_dump($ensure_credentials);
+                // $c = ob_get_contents();
+                // ob_end_clean();
+                // error_log($c);
+
                 if($ensure_credentials) {
                         $_SESSION['status'] = $ensure_credentials;
                         $_SESSION['username'] = $un;
                         $_SESSION['timeout'] = time();
-                        header("location: http://198.211.122.209/fedora-matlab/index.php");
+                        header("Location: http://198.211.122.209/fedora-matlab/index.php");
+                        return $ensure_credentials;
                 } else return "Please enter a correct username and password";
                 
         } 

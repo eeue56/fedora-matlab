@@ -9,6 +9,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
 
 if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
     $response = $membership->validate_User($_POST['username'],crypt($_POST['pwd'],$_POST['username']));}
+
 ?>
 
 <!DOCTYPE html>
