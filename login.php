@@ -25,8 +25,8 @@
 
         <div id="login_form">
 
-            <h1> Login!</h1>
-
+        <h1> Login!</h1>
+        <form type="post" action="">
         	<div class="ui small form segment piled">
                 <h2> Please enter your details below. </h2>
         		<div class="field">
@@ -47,7 +47,7 @@
 
 
         	</div>
-
+        </form>
         </div>
         <?php if(isset($reponse)) echo "you suck balls " . $response ?>
 
