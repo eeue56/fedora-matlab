@@ -45,6 +45,9 @@ class hatter{
 		} else if($this->totalScorage >= 6000) {
 			$this->hat = "rodjah's fedrah";
 		} 
+
+		$_SESSION['score'] = $this->totalScorage;
+		
 		return "[" .$this->hat . " (" .$this->totalScorage .")]";
 	}
 }
